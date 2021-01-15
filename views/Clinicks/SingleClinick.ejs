@@ -1,0 +1,38 @@
+<%-include('../partials/header.ejs')%>
+<div>     
+    <div class="card">
+        <div class="thumbnail"><img class="left" src="<%=singleClinick.Image%>" /></div>
+        <div class="right">
+            <h1><%=singleClinick.username%></h1>
+            <div class="author"><img src="<%=singleClinick.Image%>" />
+                <h2><%=singleClinick.Mail%></h2>
+            </div>
+            <div class="separator"></div>
+            <p><%=singleClinick.about%></p>
+        </div>
+        <div class="fab"><a href="/medic/clinicks"><i class="fa fa-arrow-down fa-3x"></i></a></div>
+    </div>
+    <% if(isLogged===true){%>
+    <form action="/Clinicks/EditClinick/<%=singleClinick.id%>" method="GET">
+        <button   type="submit">Edit Clinick</button>
+     </form>
+     <%}%>
+</div>
+
+
+<script>
+    /*const trash =document.getElementById('delete');
+   
+    trash.addEventListener('click',(e)=>{
+   
+       let end =`/News/news/${trash.dataset.doc}`;
+   
+       fetch(end,{
+           method:'DELETE'
+       })
+       .then((res)=> res.json())
+       .then(data=>window.location.href=data.redirect)
+       .catch(err=>console.log(err));
+    });*/
+   </script>
+<%-include('../partials/foother.ejs')%>

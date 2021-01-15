@@ -1,0 +1,28 @@
+<%-include('../partials/header.ejs')%>
+<main>
+   <% if(clinicks.length>0){%>
+   <%clinicks.forEach(clinicks =>{%>
+   <div>     
+      <div class="card">
+          <div class="thumbnail"><img class="left" src="<%=clinicks.Image%>" /></div>
+          <div class="right">
+              <h1><%=clinicks.username%></h1>
+              <div class="author"><img src="<%=clinicks.Image%>" />
+                  <h2><%=clinicks.Mail%></h2>
+              </div>
+              <div class="separator"></div>
+              <p><%=clinicks.About%></p>
+          </div>
+          <div class="fab"><a href="/Clinicks/Clinicks/<%=clinicks.id%>"><i class="fa fa-arrow-down fa-3x"></i></a></div>
+      </div>
+      <% if(isLogged===true){%>
+      <form action="/Clinicks/Clinicks/<%=clinicks.id%>?_method=DELETE" method="POST">
+        <button type="submit">delete</button>
+     </form>
+     <%}%>
+  </div>
+  <% })%>
+  <%}%>
+</main>
+
+<%-include('../partials/foother.ejs')%>

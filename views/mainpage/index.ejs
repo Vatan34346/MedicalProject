@@ -1,0 +1,28 @@
+<%-include('../partials/header.ejs')%>
+<main>
+   <% if(news.length>0){%>
+   <%news.forEach(news =>{%>
+   <div>     
+      <div class="card">
+          <div class="thumbnail"><img class="left" src="<%=news.Image%>" /></div>
+          <div class="right">
+              <h1><%=news.username%></h1>
+              <div class="author"><img src="<%=news.Image%>" />
+                  <h2><%=news.username%></h2>
+              </div>
+              <div class="separator"></div>
+              <p><%=news.about%></p>
+          </div>
+          <div class="fab"><a href="/News/news/<%=news.id%>"><i class="fa fa-arrow-down fa-3x"></i></a></div>
+      </div>
+      <%if(isLogged===true){%>
+      <form action="/News/news/<%=news.id%>?_method=DELETE" method="POST">
+        <button type="submit">delete</button>
+     </form>
+     <%}%>
+  </div>
+  <% })%>
+  <%}%>
+</main>
+
+<%-include('../partials/foother.ejs')%>

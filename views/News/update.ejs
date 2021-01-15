@@ -1,0 +1,12 @@
+<%-include('../partials/header.ejs')%>
+<form action="/News/update/<%=update.id%>?_method=PUT" method="POST">
+    <h1> News</h1><br>
+
+    <input type="text" placeholder="სურატის ლინკი" value="<%=update.Image%>" name="img" id="name" required><br>
+
+    <input type="text" placeholder="სათაური" name="name" value="<%=update.username%>" id="name" required><br>
+    <input type="text" placeholder="ინფორმაცია" name="textA" value="<%=update.about%>" id="name" required><br>
+    
+    <button type="submit" class="registerbtn">Edit</button>
+</form>
+<%-include('../partials/foother.ejs')%>
